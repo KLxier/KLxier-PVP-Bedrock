@@ -1,0 +1,304 @@
+{
+    "root_panel": {
+        "modifications": [
+            { "array_name": "controls", "operation": "insert_back", "value": { "phud@phud.main": {} } }
+        ]
+    },
+    "exp_progress_bar_and_hotbar": {
+      "type": "panel",
+      "size": [ "100%c", 31 ],
+      "anchor_from": "bottom_middle",
+      "anchor_to": "bottom_middle",
+      "offset": "$xp_control_offset",
+      "controls": [
+        {
+          "resizing_xp_bar_with_hotbar": {
+            "type": "panel",
+            "size": [ "100%c", 5 ],
+            "color": [ 240,69,30 ],
+            "shadow": false,
+            "controls": [
+              {
+                "empty_progress_bar@empty_progress_bar": {
+                  "size": [ "100%c", 5 ],
+                  "layer": 1,
+                  "controls": [
+                    {
+                      "full_progress_bar@full_progress_bar": {
+                        "size": [ "100%c + 10px", 5 ],
+                        "layer": 2,
+                        "controls": [
+                          {
+                            "progress_bar_nub@progress_bar_nub": {
+                              "size": [ "100%c - 10px", 5 ],
+                              "max_size": [ 190, 5 ],
+                              "layer": 3,
+                              "controls": [
+                                {
+                                  "horse_jump_rend@horse_jump_renderer": {
+                                    "anchor_from": "bottom_middle",
+                                    "anchor_to": "bottom_middle",
+                                    "size": [ "100%c", 5 ],
+                                    "layer": 7,
+                                    "controls": [
+                                      {
+                                        "dash_rend@dash_renderer": {
+                                          "anchor_from": "bottom_middle",
+                                          "anchor_to": "bottom_middle",
+                                          "size": [ "100%c", 5 ],
+                                          "layer": 7,
+                                          "controls": [
+                                            {
+                                              "hotbar@hotbar_chooser": {
+                                                "offset": [ 4, 16 ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "progress_text_label@progress_text_label": {
+                  "offset": [ 0, 0 ],
+                  "color": [ 240,69,30 ],
+                  "shadow": false
+                }
+              }
+            ],
+            "bindings": [
+              {
+                "binding_name": "#hotbar_with_xp_bar",
+                "binding_name_override": "#visible"
+              }
+            ]
+          }
+        },
+        // For when we hide the XP bar in Creative Move we still want to display the HUD
+        {
+          "resizing_hotbar_no_xp_bar": {
+            "type": "panel",
+            "size": [ "100%c", 5 ],
+            "controls": [
+              {
+                "horse_jump_rend@horse_jump_renderer": {
+                  "anchor_from": "bottom_middle",
+                  "anchor_to": "bottom_middle",
+                  "size": [ "100%c", 5 ],
+                  "layer": 7,
+                  "bindings": [
+                    {
+                      "binding_name": "#hotbar_no_xp_bar",
+                      "binding_name_override": "#visible"
+                    }
+                  ],
+                  "controls": [
+                    {
+                      "dash_rend@dash_renderer": {
+                        "anchor_from": "bottom_middle",
+                        "anchor_to": "bottom_middle",
+                        "size": [ "100%c", 5 ],
+                        "layer": 7,
+                        "controls": [
+                          {
+                            "hotbar@hotbar_chooser": {
+                              "offset": [ 4, 16 ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "item_text_factory": {
+            "size": [ 100, 10 ],
+            "type": "factory",
+            "control_ids": {
+              "item_text": "@hud.item_name_text",
+              "jukebox_text": "@hud.jukebox_popup_text"
+            }
+          }
+        }
+      ]
+    },
+  
+    // redo layout for exp and progress bar to work with the binding trick
+    // without touching classic
+    "exp_progress_bar_and_hotbar_pocket": {
+      "type": "panel",
+      "size": [ "100%", "100%" ],
+      "anchor_from": "bottom_middle",
+      "anchor_to": "bottom_middle",
+      "controls": [
+        {
+          "resizing_xp_bar_with_hotbar": {
+            "type": "panel",
+            "size": [ "100%", 5 ],
+            "anchor_from": "bottom_middle",
+            "anchor_to": "bottom_middle",
+            "use_anchored_offset": true,
+            "property_bag": {
+              "#anchored_offset_value_y": 0.0,
+              "#size_binding_x": 0.0,
+              "#size_binding_y": 0.0
+            },
+            "controls": [
+              {
+                "empty_progress_bar@empty_progress_bar": {
+                  "size": [ "100%", "100%" ],
+                  "layer": 1,
+                  "controls": [
+                    {
+                      "full_progress_bar@full_progress_bar": {
+                        "size": [ "100%", "100%" ],
+                        "layer": 2,
+                        "controls": [
+                          {
+                            "progress_bar_nub@progress_bar_nub": {
+                              "size": [ "99%", "100%" ],
+                              "layer": 3
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "progress_text_label@progress_text_label": {
+                  "offset": [ 0, 0 ],
+                  "color": [ 240,69,30 ],
+                  "shadow": false,
+                  "layer": 7
+                }
+              }
+            ],
+            "bindings": [
+              {
+                "binding_name": "#hotbar_with_xp_bar",
+                "binding_name_override": "#visible"
+              },
+              {
+                "binding_name": "#exp_bar_and_text_offset_y",
+                "binding_name_override": "#anchored_offset_value_y"
+              },
+              {
+                "binding_name": "#exp_bar_size_x",
+                "binding_name_override": "#size_binding_x"
+              },
+              {
+                "binding_name": "#exp_bar_size_y",
+                "binding_name_override": "#size_binding_y"
+              }
+            ]
+          }
+        },
+        {
+          "hotbar_panel@hotbar_panel_pocket": {}
+        },
+        {
+          "item_text": {
+            "type": "panel",
+            "offset": [ 0, 0 ],
+            "anchor_from": "bottom_middle",
+            "anchor_to": "bottom_middle",
+            "use_anchored_offset": true,
+            "property_bag": {
+              "#anchored_offset_value_y": 0.0
+            },
+            "bindings": [
+              {
+                "binding_name": "#exp_bar_and_text_offset_y",
+                "binding_name_override": "#anchored_offset_value_y"
+              }
+            ],
+            "controls": [
+              {
+                "item_text_factory": {
+                  "size": [ 100, 10 ],
+                  "type": "factory",
+                  "control_ids": {
+                    "item_text": "@hud.item_name_text_root",
+                    "jukebox_text": "@hud.jukebox_popup_text"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "horse_jump_rend@horse_jump_renderer": {
+            "layer": 7,
+            "size": [ "100%", 5 ],
+            "anchor_from": "bottom_middle",
+            "anchor_to": "bottom_middle",
+            "use_anchored_offset": true,
+            "property_bag": {
+              "#anchored_offset_value_y": 0.0,
+              "#size_binding_x": 0.0,
+              "#size_binding_y": 0.0
+            },
+            "bindings": [
+              {
+                "binding_name": "#exp_bar_and_text_offset_y",
+                "binding_name_override": "#anchored_offset_value_y"
+              },
+              {
+                "binding_name": "#exp_bar_size_x",
+                "binding_name_override": "#size_binding_x"
+              },
+              {
+                "binding_name": "#exp_bar_size_y",
+                "binding_name_override": "#size_binding_y"
+              }
+            ]
+          }
+        },
+        {
+          "dash_rend@dash_renderer": {
+            "layer": 7,
+            "size": [ "100%", 5 ],
+            "anchor_from": "bottom_middle",
+            "anchor_to": "bottom_middle",
+            "use_anchored_offset": true,
+            "property_bag": {
+              "#anchored_offset_value_y": 0.0,
+              "#size_binding_x": 0.0,
+              "#size_binding_y": 0.0
+            },
+            "bindings": [
+              {
+                "binding_name": "#exp_bar_and_text_offset_y",
+                "binding_name_override": "#anchored_offset_value_y"
+              },
+              {
+                "binding_name": "#exp_bar_size_x",
+                "binding_name_override": "#size_binding_x"
+              },
+              {
+                "binding_name": "#exp_bar_size_y",
+                "binding_name_override": "#size_binding_y"
+              }
+            ]
+          }
+        }
+      ]
+    }
+    
+}

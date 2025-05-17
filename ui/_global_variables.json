@@ -1,0 +1,9 @@
+{
+  "$transition_time_push_size": 0.125,
+  "$transition_time_pop_size": 0.125,
+  "$transition_time_push": 0.125,
+  "$transition_time_pop": 0.125,
+  "$container_transition_time_push": 0.125,
+  "$container_transition_time_pop": 0.125,
+  "$loading_bar_transition": 0.125
+}

@@ -1,0 +1,39 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "pack.description",
+        "name": "§l§bKLXIER §l§gP§l§aV§l§cP",
+        "uuid": "6027820c-629f-428b-9acd-3fc2ee13e9cd",
+        "version": [1, 0, 0]
+    },
+    "modules": [
+        {
+            "description":"§bKLXIER",
+            "type": "resources",
+            "uuid": "0c0d2dff-70e0-4c0a-b914-940ac2f40527",
+            "version": [1, 0, 0]
+        }
+    ],
+    "subpacks": [
+     {
+         "folder_name": "long+flat",
+         "name": "fancy.name",
+         "memory_tier": 1
+      },
+     {
+         "folder_name": "long",
+         "name": "long.name",
+         "memory_tier": 1
+     },
+     {
+         "folder_name": "flat",
+         "name": "flat.name",
+         "memory_tier": 1
+      },
+     {
+         "folder_name": "default",
+         "name": "default.name",
+         "memory_tier": 1
+      }
+    ]
+}
