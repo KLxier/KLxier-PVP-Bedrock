@@ -4,12 +4,13 @@
   "progress_loading_bars": {
     "type": "image",
     "layer": 2,
-    "texture": "textures/ui/loading_spin2",
+    "texture": "textures/ui/loading_spin",
     "anchor_from": "center",
     "anchor_to": "center",
-    "offset": [ 0, 24 ],
-    "size": [ 14, 14 ],
+    "offset": [ 0, -20 ],
+    "size": [ 10, 10 ],
     "uv_size": [ 7, 7 ],
+    "color": "$generic_button_text_color",
     "uv": "@progress.spinner_animation",
     "bindings": [
       {
@@ -18,7 +19,57 @@
       }
     ]
   },
+  "progress_title_text@progress.progress_screen_text": {
+    "size": [ "default", 10 ],
+    "offset": [ 0, -40 ],
+    "text": "#title_text",
+    "color": "$generic_button_text_color",
+    "bindings": [
+      {
+        "binding_name": "#title_text"
+      }
+    ]
+  },
+  "progress_bar_text@progress.progress_screen_text": {
+    "size": [ "default", 20 ],
+    "offset": [ 0, 80 ],
+    "max_size": [ "150% + 20px", 20 ],
+    "localize": false,
+    "text": "#progress_text",
+    "bindings": [
+      { "binding_name": "#progress_text" }
+    ]
+  },
 
+  "fancy_progress_loading_bars": {
+    "type": "panel",
+    "size": [ "150%", 5 ],
+    "layer": 5,
+    "controls": [
+      {
+        "full_progress_bar_icon@achievement.full_progress_bar_icon_base": {
+          "layer": 2,
+          "bindings": [
+            {
+              "binding_name": "#loading_bar_percentage",
+              "binding_name_override": "#clip_ratio"
+            }
+          ]
+        }
+      },
+      {
+        "empty_progress_bar_icon@achievement.empty_progress_bar_icon": {
+          "layer": 1
+        }
+      },
+      {
+        "progress_bar_nub@progress.progress_bar_nub": {
+          "size": [ "100% - 10px", 5 ],
+          "layer": 4
+        }
+      }
+    ]
+  },
   "progress_loading_spinner": {
     "type": "image",
     "layer": 2,
@@ -34,31 +85,106 @@
       }
     ]
   },
+  "world_modal_progress_panel": {
+    "type": "panel",
+    "size": "$world_modal_screen_size",
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$button_state_default_base": "common.button_state_default",
+        "$button_state_hover_base": "common.button_state_hover",
+        "$button_state_pressed_base": "common.button_state_pressed"
+      },
+      {
+        "requires": "$pocket_screen",
+        "$button_state_default_base": "common-classic.button_state_default",
+        "$button_state_hover_base": "common-classic.button_state_hover",
+        "$button_state_pressed_base": "common-classic.button_state_pressed"
+      }
+    ],
+    "controls": [
+      {
+        "base_content": {
+          "type": "panel",
+          "size": [ "100%-12px", "100%-12px" ],
+          "offset": [ 6, 6 ],
+          "controls": [
+            {
+              "progress_title_text@progress.progress_title_text": {}
+            },
+            {
+              "progress_bar_text@progress.progress_bar_text": {
+              }
+            }
+          ]
+        }
+      },
+      {
+        "inside_content": {
+          "type": "stack_panel",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100%-12px", "100%c" ],
+          "controls": [
+            {
+              "loading_bar_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "fancy_progress_loading_bars@progress.fancy_progress_loading_bars": {
+                      "offset": [ 0, 75 ],
+                      "anchor_from": "center",
+                      "anchor_to": "center"
+                    }
+                  },
+                  {
+                    "progress_loading_bars@progress.progress_loading_bars": {}
+                  }
+                ]
+              }
+            },
+
+            {
+              "vertical_padding": {
+                "type": "panel",
+                "size": [ 0, 5 ]
+              }
+            },
+            {
+              "modal_button_panel@$modal_button_panel_type": {
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "size": [ "100%", "100%c" ]
+              }
+            },
+            {
+              "vertical_padding_2": {
+                "type": "panel",
+                "size": [ 0, 14 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
   "world_save_modal_progress_screen_content": {
     "type": "panel",
     "controls": [
       {
-        "world_modal_progress_panel@progress.world_modal_progress_panel": {
-          "$modal_button_panel_type": "progress.modal_button_panel_with_retry"
-        }
-      },
-      {
-        "save_icon@progress.auto_save": {}
+        "world_modal_progress_panel@progress.world_modal_progress_panel": {}
       },
       { "popup_dialog_factory@progress.popup_dialog_factory": {} }
     ]
   },
   "world_convert_modal_progress_screen_content": {
     "type": "panel",
-
     "layer": 3,
-
     "controls": [
       { "mobile_data_icon@progress.mobile_data_icon": {} },
       {
-        "world_modal_progress_panel@progress.world_modal_progress_panel": {
-          "$modal_button_panel_type": "progress.modal_button_panel"
-        }
+        "world_modal_progress_panel@progress.world_modal_progress_panel": {}
       },
       { "popup_dialog_factory@progress.popup_dialog_factory": {} }
     ]
@@ -97,10 +223,10 @@
       {
         "content": {
           "type": "panel",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
+          "anchor_from": "center",
+          "anchor_to": "center",
           "size": [ "100%-12px", "100%-12px" ],
-          "offset": [ 6, 6 ],
+          "offset": [ 0, 0 ],
           "controls": [
             {
               "progress_loading_bars@progress.progress_loading_bars": {}
@@ -128,7 +254,6 @@
           "type": "panel",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          // magic offset to make the scroll clipping perfect
           "size": [ "100%-12px", "100%-60px" ],
           "offset": [ 6, 20 ],
           "controls": [
@@ -162,7 +287,7 @@
   },
 
   "overworld_loading_background@world_loading_screen_background": {
-    "texture": "textures/blocks/control.png",
+    "texture": "textures/ui/control",
     "controls": [
       {
         "background_gradient": {
@@ -217,5 +342,5 @@
 
   "theend_loading_progress_screen@world_loading_progress_screen": {
     "$screen_bg_content": "progress.theend_loading_background"
-  },
+  }
 }

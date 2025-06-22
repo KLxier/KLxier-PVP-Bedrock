@@ -7,7 +7,7 @@
 
   "progress_text_label": {
     "type": "label",
-    "shadow": false,
+    "shadow": true,
     "text": "#level_number",
     "color": "$level_color",
     "anchor_from": "top_middle",
