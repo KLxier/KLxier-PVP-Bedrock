@@ -1,12 +1,12 @@
 {
     "namespace": "phud_logo",
-    "main": { "type": "panel", "controls": [{ "content@content": {} }] },//{ "background@phud.background": {} }, 
+    "main": { "type": "panel", "controls": [{ "content@content": {} }] },
     "content": {
         "type": "panel",
         "anchor_from": "center",
         "anchor_to": "center",
         "size": ["100% - 4px", "100% - 4px"],
-        "controls": [{ "logo@logo": {} }],//, { "text_selector@text_selector": {} }
+        "controls": [{ "logo@logo": {} }],
         "layer": 1
     },
     "logo": {

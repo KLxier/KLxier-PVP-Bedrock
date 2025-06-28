@@ -189,47 +189,28 @@
       { "popup_dialog_factory@progress.popup_dialog_factory": {} }
     ]
   },
-
-  "modal_button_panel_with_retry@modal_button_panel": {
-    "controls": [
-      {
-        "abort_button@progress.abort_button": {}
-      },
-      {
-        "retry_button@progress.retry_button": {}
-      }
-    ]
-  },
-
-  "modal_ok_button_panel@button_panel": {
-    "controls": [
-      {
-        "ok_button@progress.ok_button": {}
-      }
-    ]
-  },
   "modal_progress_panel_no_cancel": {
     "type": "panel",
     "size": "$modal_screen_size",
     "$background_fill_alpha|default": 0.8,
     "controls": [
       {
-        "common_panel@common.common_panel": {
-          "$dialog_background": "dialog_background_hollow_4",
-          "$fill_alpha": "$background_fill_alpha",
-          "$show_close_button": false
-        }
-      },
-      {
         "content": {
           "type": "panel",
-          "anchor_from": "center",
-          "anchor_to": "center",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
           "size": [ "100%-12px", "100%-12px" ],
-          "offset": [ 0, 0 ],
+          "offset": [ 6, 6 ],
           "controls": [
             {
-              "progress_loading_bars@progress.progress_loading_bars": {}
+              "title_panel@progress.title_panel": {
+                "offset": [ 0, 20 ]
+              }
+            },
+            {
+              "progress_loading_bars@progress.progress_loading_bars": {
+                "offset": [ 0, 10 ]
+              }
             }
           ]
         }
@@ -243,13 +224,6 @@
     "$background_fill_alpha|default": 0.8,
     "controls": [
       {
-        "common_panel@common.common_panel": {
-          "$dialog_background": "dialog_background_hollow_2",
-          "$fill_alpha": "$background_fill_alpha",
-          "$show_close_button": false
-        }
-      },
-      {
         "content": {
           "type": "panel",
           "anchor_from": "top_left",
@@ -258,7 +232,14 @@
           "offset": [ 6, 20 ],
           "controls": [
             {
-              "progress_loading_bars@progress.progress_loading_bars": {}
+              "title_panel@progress.title_panel": {
+                "offset": [ 0, 20 ]
+              }
+            },
+            {
+              "progress_loading_bars@progress.progress_loading_bars": {
+                "offset": [ 0, 10 ]
+              }
             }
           ]
         }
@@ -272,7 +253,6 @@
       }
     ]
   },
-
   "progress_panel": {
     "type": "panel",
     "size": [ "100%", "100%" ],
@@ -287,7 +267,7 @@
   },
 
   "overworld_loading_background@world_loading_screen_background": {
-    "texture": "textures/ui/control",
+    "texture": "textures/blocks/dirt",
     "controls": [
       {
         "background_gradient": {
@@ -332,8 +312,6 @@
         "background_gradient": {
           "type": "custom",
           "renderer": "gradient_renderer",
-          "color1": [ 0, 0, 0, 0.2 ],
-          "color2": [ 0, 0, 0, 0.4 ],
           "ignored": "$is_holographic"
         }
       }
