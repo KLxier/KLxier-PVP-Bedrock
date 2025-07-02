@@ -20,24 +20,6 @@
 
   },
 
-  "development_version": {
-    "type": "panel",
-    "controls": [
-      {
-        "label": {
-          "type": "label",
-          "color": "$main_header_text_color",
-          "layer": 2,
-          "text": "Minecraft #development_version",
-          "size": [ "default", 10 ],
-          "max_size": [ "100%", "100%" ],
-          "anchor_from": "center",
-          "anchor_to": "center"
-        }
-      }
-    ]
-  },
-
   "version": {
     "type": "panel",
     "anchor_from": "top_right",

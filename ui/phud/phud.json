@@ -38,19 +38,15 @@
                     "anchor_from": "top_right",
                     "anchor_to": "top_right",
                     "offset": [-8, 8],
-                    "size": [100, 36],
-                    "$font_scale": 0.75,
-                    "$color": [0.82, 0.77, 0.75, 1]
+                    "size": [100, 36]
                 }
             },
             {
                 "currency@phud_logo.main": {
                     "anchor_from": "bottom_right",
                     "anchor_to": "bottom_right",
-                    "offset": [-8, 8],
-                    "size": [100, 36],
-                    "$font_scale": 0.75,
-                    "$color": [0.82, 0.77, 0.75, 1]
+                    "offset": [-8, 0],
+                    "size": [100, 36]
                 }
             }
         ]

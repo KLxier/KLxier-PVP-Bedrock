@@ -43,7 +43,7 @@
 
   "fancy_progress_loading_bars": {
     "type": "panel",
-    "size": [ "150%", 5 ],
+    "size": [ "100%", 5 ],
     "layer": 5,
     "controls": [
       {

@@ -35,5 +35,53 @@
          "name": "default.name",
          "memory_tier": 1
       }
-    ]
+    ],
+   "settings": [
+    {
+	  "type": "label",
+	  "text": "个人设置\n(骗你的LOL, 官方压根就没给接口做密码呢)"
+	},
+    {
+	  "type": "toggle",
+	  "text": "旧版木板纹理",
+	  "name": "old_wood",
+	  "default": false
+    },
+    {
+	  "type": "toggle",
+	  "text": "旧版短剑纹理\n§c该设置仅适用于短剑/平砍剑纹理!!!",
+	  "name": "old_sword",
+	  "default": false
+    },
+    {
+	  "type": "toggle",
+	  "text": "第三人称视角标签",
+	  "name": "thirdtags",
+	  "default": false
+    },
+    {
+	  "type": "toggle",
+	  "text": "纸娃娃常显",
+	  "name": "paperdoll_alwaysshow",
+	  "default": true
+    },
+    {
+	  "type": "toggle",
+	  "text": "十字准星常显",
+	  "name": "awcrhair",
+	  "default": true
+    },
+    {
+	  "type": "dropdown",
+	  "text": "剑样式",
+	  "name": "sword_kinds",
+	  "options": [
+	    "普通短剑",
+		"平砍短剑",
+		"普通长剑",
+		"平砍长剑"
+	  ],
+	  "default": 0
+    }
+  ]
 }
