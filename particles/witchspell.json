@@ -4,8 +4,7 @@
     "description": {
       "identifier": "minecraft:witchspell_emitter",
       "basic_render_parameters": {
-        "material": "particles_blend",
-        "texture": "textures/particle/particles"
+        "material": "particles_blend"
       }
     },
     "components": {

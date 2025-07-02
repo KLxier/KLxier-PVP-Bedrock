@@ -1,7 +1,0 @@
-{
-    "ui_defs": [
-        "ui/phud/phud.json",
-        "ui/phud/time.json",
-        "ui/phud/logo.json"
-    ]
-}
