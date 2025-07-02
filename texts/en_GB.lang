@@ -89,7 +89,7 @@ item.stick.name=§nStick
 entity.ender_pearl.name=§dTeleport Pearl
 item.ender_pearl.name=§dTeleport Pearl
 item.fishing_rod.name=§eCatching §gRod
-item.compass.name=§aTracking §eCompass
+item.compass.name=§eCompass
 pack.description=§l§cRELEASE §ePREVIEW §aVERSION!!!
 pack.name=§bKLxier §l§gP§l§aV§l§cP
 item.turtle_helmet.name=§aTurtle Shell
@@ -107,4 +107,5 @@ default.name=Short
 lang.englishuk.name=English (United Kingdom/UK/Britain/England)
 lang.englishus.name=English (United States/America)
 lang.schinese.name=Chinese Simplified
-lang.tchinesetw.name=Chinese Traditional(Taiwan, China)item.diamond_sword.name=§bDiamond Sword
+lang.tchinesetw.name=Chinese Traditional(Taiwan, China)
+item.diamond_sword.name=§bDiamond Sword
