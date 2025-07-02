@@ -4,7 +4,8 @@
     "description": {
       "identifier": "minecraft:cauldron_spell_emitter",
       "basic_render_parameters": {
-        "material": "particles_blend"
+        "material": "particles_blend",
+        "texture": "textures/particles_cleared/particles"
       }
     },
     "components": {
