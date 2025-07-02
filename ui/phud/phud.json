@@ -1,0 +1,54 @@
+{
+    "namespace": "phud",
+    "main": { "type": "panel", "size": ["100%", "100%"], "controls": [{ "data@data": {} }, { "elements@elements": {} }] },
+    "data": {
+        "type": "panel",
+        "size": ["120%", "120%"],
+        "bindings": [
+            { "binding_name": "#hud_title_text_string", "binding_name_override": "#text" },
+            {
+                "binding_name": "#hud_title_text_string",
+                "binding_name_override": "#saved_value",
+                "binding_condition": "visibility_changed"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#text > '$' and #text < '$􀐏') and not (#text = #saved_value))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "elements": {
+        "type": "panel",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "data",
+                "source_property_name": "#time",
+                "target_property_name": "#time",
+                "resolve_sibling_scope": true
+            }
+        ],
+        "$offset": [0, 0],
+        "offset": "$offset",
+        "variables": [{ "requires": "$pocket_screen", "$offset": [0, 10] }],
+        "controls": [
+            {
+                "time@phud_time.main": {
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "offset": [-8, 8],
+                    "size": [100, 36]
+                }
+            },
+            {
+                "currency@phud_logo.main": {
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "offset": [-8, 0],
+                    "size": [100, 36]
+                }
+            }
+        ]
+    }
+}
